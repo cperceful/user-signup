@@ -16,9 +16,50 @@
 #
 import webapp2
 
+def buildPage():
+    content = '''
+        <!DOCTYPE html>
+        <html>
+            <head>
+                <title>User Signup</title>
+                <style media="screen">
+                    .error{
+                        color: red;
+                        font-weight: bold;
+                    }
+                </style>
+            </head>
+            <body>
+                <h1>User Signup Page</h1>
+                <form method="post">
+                    <table>
+                        <tr>
+                            <td><label for="username">Username</label></td>
+                            <td><input type="text" name="username" required><span class="error"></span></td>
+                        </tr>
+                        <tr>
+                            <td><label for="password">Password</label></td>
+                            <td><input type="password" name="password" required><span class="error"></span></td>
+                        </tr>
+                        <tr>
+                            <td><label for="verifypassword">Verify Password</label></td>
+                            <td><input type="password" name="verifypassword" required><span class="error"></span></td>
+                        </tr>
+                        <tr>
+                            <td><label for="email">Email</label></td>
+                            <td><input type="email" name="email" value=""><span class="error"></span></td>
+                        </tr>
+                    </table>
+                        <input type="submit">
+                </form>
+            </body>
+        </html>
+    '''
+    return content;
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write('Hello woprld!')
+        self.response.write(buildPage());
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
