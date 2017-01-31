@@ -111,23 +111,6 @@ class MainHandler(webapp2.RequestHandler):
 
         self.response.write(buildPage(usernameError=usernameError, passwordError=passwordError, verifyError=verifyError, emailError=emailError));
 
-
-
-
-        if email:
-            if not validEmail(email):
-                emailError = "Invalid emmail";
-            else:
-                emailError = "";
-        else:
-            emailError = "";
-
-
-
-
-
-
-
 class SuccessHandler(webapp2.RequestHandler):
     def get(self):
         username = self.request.get('username');
