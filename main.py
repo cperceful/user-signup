@@ -86,24 +86,24 @@ class MainHandler(webapp2.RequestHandler):
             self.redirect('/success?username=' + username);
 
         if not validUsername(username):
-            usernameError = 'Invalid username, idiot';
+            usernameError = 'Invalid username';
         else:
             usernameError = '';
 
         if validPassword(password):
             if password != verify:
-                verifyError = "Passwords do not match, idiot"
+                verifyError = "Passwords do not match";
                 passwordError = "";
             else:
                 verifyError = "";
-                passwordError = "Invalid password, idiot"
+                passwordError = "Invalid password";
         elif not validPassword(password):
             verifyError = "";
-            passwordError = "Invalid password, idiot";
+            passwordError = "Invalid password";
 
         if email:
             if not validEmail(email):
-                emailError = "Invalid email, idiot";
+                emailError = "Invalid email";
             else:
                 emailError = "";
         else:
@@ -116,7 +116,7 @@ class SuccessHandler(webapp2.RequestHandler):
         username = self.request.get('username');
 
         content = '''
-        <h1>Thanks for signing up, {u}! You're the best and I love you.</h1>
+        <h1>Thanks for signing up, {u}! You're my best friend</h1>
         '''.format(u=username);
 
         self.response.write(content);
